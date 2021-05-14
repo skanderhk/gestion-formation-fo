@@ -8,3 +8,9 @@ export interface User {
   password?: string;
   role: Role;
 }
+
+export type UserLogin = Pick<User, 'username' | 'password'>;
+
+export interface TokenResponse {
+  token: string;
+}
