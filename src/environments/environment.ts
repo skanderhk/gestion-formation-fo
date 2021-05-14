@@ -3,7 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'http://localhost:8080/',
+  USER: {
+    LOGIN: 'login',
+    CONNECTED: 'load',
+    // LOGIN: 'authenticate',
+    // CONNECTED: 'connected',
+  },
+  ETUDIANT: 'etudiants',
+  FICHEPRESENCE: 'fichePresences',
+  FORMATEUR: 'formateurs',
+  GROUPE: 'groupes',
+  MATIERE: 'matieres',
+  SEANCE: 'seances',
 };
 
 /*
