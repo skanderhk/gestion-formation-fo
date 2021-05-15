@@ -1,5 +1,17 @@
 <mat-drawer-container class="drawer-container">
-  <mat-drawer mode="side" [opened]="open">Drawer content</mat-drawer>
+  <mat-drawer mode="side" [opened]="open">
+    <ng-container [ngSwitch]="user.role">
+      <ng-container *ngSwitchCase="isAdmin">
+        isAdmin
+      </ng-container>
+      <ng-container *ngSwitchCase="isEtudiant">
+        isEtudiant
+      </ng-container>
+      <ng-container *ngSwitchDefault>
+        isFormateur
+      </ng-container>
+    </ng-container>
+  </mat-drawer>
   <mat-drawer-content>
     <mat-toolbar>
       <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="openClose()">

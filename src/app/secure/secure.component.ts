@@ -24,7 +24,7 @@ export class SecureComponent implements OnInit, OnDestroy {
     private tokenStorage: TokenStorageService,
     private router: Router,
     public dialog: MatDialog,
-    private snackBar: MatSnackBar,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -56,7 +56,7 @@ export class SecureComponent implements OnInit, OnDestroy {
       data: {
         title: 'Déconnexion',
         message: 'Êtes-vous sûr de se déconnecter ?',
-        buttonLabel: 'Déconnecter'
+        buttonLabel: 'Déconnecter',
       },
     });
 
@@ -70,6 +70,16 @@ export class SecureComponent implements OnInit, OnDestroy {
         });
       }
     });
+  }
+
+  get isAdmin(): Role {
+    return Role.ADMIN;
+  }
+  get isEtudiant(): Role {
+    return Role.ETUDIANT;
+  }
+  get isFormateur(): Role {
+    return Role.FORMATEUR;
   }
 
   ngOnDestroy(): void {
