@@ -35,8 +35,8 @@ export class SecureComponent implements OnInit, OnDestroy {
     this.subscription = this.authService.connectedUser().subscribe((user) => {
       this.user = user;
       const role = user.role;
-      localStorage.setItem('user', JSON.stringify(user));
-      localStorage.setItem('role', user.role);
+      this.tokenStorage.setRole(user.role);
+      this.tokenStorage.setUser(user);
       if (role === Role.ADMIN) {
         this.router.navigate(['secure/admin']);
       } else if (role === Role.FORMATEUR) {

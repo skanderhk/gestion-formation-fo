@@ -1,5 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthorityGuard } from './guards/authority.guard';
 import { NgModule } from '@angular/core';
 import { SecureComponent } from './secure.component';
 
@@ -28,6 +29,7 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '',
+    canActivate: [AuthorityGuard],
     pathMatch: 'full',
   },
   {
