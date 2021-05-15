@@ -10,10 +10,6 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: '404',
-    component: NotFoundComponent,
-  },
-  {
     path: '',
     redirectTo: '',
     pathMatch: 'full',
