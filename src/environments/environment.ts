@@ -11,12 +11,14 @@ export const environment = {
     LOGIN: 'authenticate',
     CONNECTED: 'connected',
   },
-  ETUDIANT: 'etudiants',
-  FICHEPRESENCE: 'fichePresences',
-  FORMATEUR: 'formateurs',
-  GROUPE: 'groupes',
-  MATIERE: 'matieres',
-  SEANCE: 'seances',
+  ADMIN: 'admins/',
+  ETUDIANT: 'etudiants/',
+  FICHEPRESENCE: 'fichePresences/',
+  FORMATEUR: 'formateurs/',
+  GROUPE: 'groupes/',
+  MATIERE: 'matieres/',
+  NOTE: 'notes/',
+  SEANCE: 'seances/',
 };
 
 /*
