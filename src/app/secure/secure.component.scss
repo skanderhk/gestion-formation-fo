@@ -1,7 +1,14 @@
-.drawer-container{
+@import '~@angular/material/theming';
+@import './../../scss/variables.scss';
+.drawer-container {
   height: 100%;
 }
 
 .spacer {
   flex: 1 1 auto;
+}
+
+.router-active {
+  color: mat-color($primaryPalette);
+  font-weight: 600;
 }

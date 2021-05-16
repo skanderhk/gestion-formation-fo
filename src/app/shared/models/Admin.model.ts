@@ -6,5 +6,5 @@ export interface Admin {
   prenom: string;
   username: string;
   password?: string;
-  role: Role;
+  readonly role?: Role;
 }

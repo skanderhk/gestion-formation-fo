@@ -8,7 +8,7 @@ export interface Etudiant {
   prenom: string;
   username: string;
   password?: string;
-  role: Role;
+  readonly role?: Role;
   groupe?: Groupe;
   listNote: Note[];
 }

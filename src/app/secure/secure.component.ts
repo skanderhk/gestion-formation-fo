@@ -9,6 +9,7 @@ import { SimpleDialogComponent } from '../shared/components/simpleDialog/simpleD
 import { Subscription } from 'rxjs';
 import { TokenStorageService } from '../core/service/TokenStorage.service';
 import { User } from '../shared/models/User.model';
+import { getFullname } from '../shared/functions/commun';
 
 @Component({
   selector: 'app-secure',
@@ -18,6 +19,7 @@ import { User } from '../shared/models/User.model';
 export class SecureComponent implements OnInit, OnDestroy {
   public open = true;
   public user: User;
+  public getFullname = getFullname;
   private subscription: Subscription;
   constructor(
     private authService: AuthService,
