@@ -1,30 +1,85 @@
-<mat-drawer-container class="login-container" autosize>
-<mat-toolbar>
-  <span>Login</span>
-</mat-toolbar>
+<div class="home-center">
+  <div class="home-desc-center">
 
-<mat-card class="container login-card" >
-  <form [formGroup]="loginForm" (submit)="login()" >
-    <mat-form-field appearance="fill" class="w-100">
-      <mat-label>Entrer votre username</mat-label>
-      <input matInput placeholder="foulen.benfoulen" formControlName="usernameControl" required />
-      <mat-error *ngIf="loginForm.get('usernameControl').invalid">Username requis</mat-error>
-    </mat-form-field>
-    <mat-form-field appearance="fill" class="w-100">
-      <mat-label>Entrer votre mot de passe</mat-label>
-      <input matInput formControlName="passwordControl" [type]="hide ? 'password' : 'text'" />
-      <mat-error *ngIf="loginForm.get('passwordControl').invalid">Mot de passe requis</mat-error>
-      <button
-        mat-icon-button
-        matSuffix
-        (click)="hide = !hide"
-        [attr.aria-label]="'Masquer mot de passe'"
-        [attr.aria-pressed]="hide"
-      >
-        <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
-      </button>
-    </mat-form-field>
-    <button class="w-100" type="submit" [disabled]="loginForm.invalid" mat-raised-button color="accent">Login</button>
-  </form>
-</mat-card>
-</mat-drawer-container>
+      <div class="container">
+
+          <div class="home-btn"><a href="/" class="text-white router-link-active"><i
+                      class="fas fa-home h2"></i></a></div>
+
+
+          <div class="row justify-content-center">
+              <div class="col-md-8 col-lg-6 col-xl-5">
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="px-2 py-3">
+
+
+                              <div class="text-center">
+                                  <a href="index.html">
+                                      <img src="assets/images/logo-light.png" height="35" alt="logo">
+                                  </a>
+
+                                  <h5 class="text-primary mb-2 mt-4">Welcome Back !</h5>
+                                  <p class="text-muted">Sign in to continue to Morvin.</p>
+                              </div>
+
+
+                              <form [formGroup]="loginForm" (submit)="login()" class="custom-validation" data-parsley-validate>
+
+                                  <div class="mb-3">
+                                      <label for="username">Username</label>
+                                      <input type="text" class="form-control" id="username"
+                                          placeholder="Enter username" formControlName="usernameControl" required data-parsley-length="[5,10]">
+                                          <div class="invalid-feedback">
+                                            Username is required.
+                                        </div>
+                                      <!-- <mat-error *ngIf="loginForm.get('usernameControl').invalid">Username requis</mat-error> -->
+                                  </div>
+
+                                  <div class="mb-3">
+                                      <label for="userpassword">Password</label>
+                                      <input matInput formControlName="passwordControl" class="form-control" [type]="hide ? 'password' : 'text'" required data-parsley-length="[5,10]">
+                                      <div class="invalid-feedback">
+                                        Password is required.
+                                    </div>
+                                      <!-- <mat-error *ngIf="loginForm.get('passwordControl').invalid">Mot de passe requis</mat-error> -->
+                                  </div>
+
+                                  <div class="mb-3">
+                                          <div class="form-check">
+                                              <input type="checkbox" class="form-check-input"
+                                                  id="customControlInline">
+                                              <label class="form-label"
+                                                  for="customControlInline">Remember me</label>
+                                          </div>
+                                  </div>
+
+                                  <div>
+                                    <button class="btn btn-primary w-100" type="submit">Sign in</button>
+                                  </div>
+
+                                  <div class="mt-4 text-center">
+                                      <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock me-1"></i> Forgot your password?</a>
+                                  </div>
+
+
+                              </form>
+
+
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="mt-5 text-center text-white">
+                      <p>Don't have an account ?<a href="auth-register.html" class="fw-bold text-white"> Register</a> </p>
+                      <p>© <script>document.write(new Date().getFullYear())</script>. Crafted with <i class="mdi mdi-heart text-danger"></i></p>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+
+
+  </div>
+  <!-- End Log In page -->
+</div>
