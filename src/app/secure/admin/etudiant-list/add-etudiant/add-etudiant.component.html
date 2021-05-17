@@ -1,0 +1,88 @@
+<div class="container mt-3 page-container pb-4">
+  <div class="row">
+    <div class="col">
+      <div class="d-flex align-content-center">
+        <h5 class="page-title">
+          <button mat-icon-button matTooltip="Retour" (click)="onBack()">
+            <em class="fas fa-arrow-left fa-lg"></em>
+          </button>
+          Ajout etudiant
+        </h5>
+      </div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="row mt-2">
+    <div class="col-md-3 col-sm-none"></div>
+    <div class="col-md-6 col-sm-12">
+      <form [formGroup]="etudiantForm" (submit)="submitEtudiant()">
+        <mat-form-field class="w-100">
+          <mat-label>Nom</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Nom"
+            formControlName="nomControl"
+            required
+            autocomplete="off"
+          />
+          <mat-error *ngIf="etudiantForm.controls['nomControl'].invalid">
+            Nom champ requis
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100">
+          <mat-label>Prénom</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Prénom"
+            formControlName="prenomControl"
+            required
+            autocomplete="off"
+          />
+          <mat-error *ngIf="etudiantForm.controls['prenomControl'].invalid">
+            Prénom champ requis
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100">
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Username"
+            formControlName="usernameControl"
+            required
+            autocomplete="off"
+          />
+          <mat-error *ngIf="etudiantForm.controls['usernameControl'].invalid">
+            Username champ requis
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100">
+          <mat-label>Mot de passe</mat-label>
+          <input
+            matInput
+            placeholder="password"
+            type="password"
+            formControlName="passwordControl"
+            required
+            autocomplete="off"
+          />
+          <mat-error *ngIf="etudiantForm.controls['passwordControl'].invalid">
+            Mot de passe champ requis
+          </mat-error>
+        </mat-form-field>
+        <button
+          class="w-100"
+          type="submit"
+          [disabled]="etudiantForm.invalid"
+          mat-raised-button
+          color="accent"
+        >
+          Sauvegarder etudiant
+        </button>
+      </form>
+    </div>
+    <div class="col-md-3 col-sm-none"></div>
+  </div>
+</div>

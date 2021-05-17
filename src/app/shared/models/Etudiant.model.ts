@@ -10,5 +10,5 @@ export interface Etudiant {
   password?: string;
   readonly role?: Role;
   groupe?: Groupe;
-  listNote: Note[];
+  listNote?: Note[];
 }
