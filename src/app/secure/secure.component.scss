@@ -11,4 +11,15 @@
 .router-active {
   color: mat-color($primaryPalette);
   font-weight: 600;
+  cursor: pointer;
+  text-shadow: 0px 0px 4px mat-color($primaryPalette, 0.6);
+}
+
+mat-list {
+  mat-list-item {
+    cursor: pointer;
+    &:hover {
+      color: mat-color($primaryPalette);
+    }
+  }
 }
