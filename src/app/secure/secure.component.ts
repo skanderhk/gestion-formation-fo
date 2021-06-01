@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 import { TokenStorageService } from '../core/service/TokenStorage.service';
 import { User } from '../shared/models/User.model';
 import { getFullname } from '../shared/functions/commun';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-secure',
@@ -49,6 +50,8 @@ export class SecureComponent implements OnInit, OnDestroy {
     });
   }
 
+
+
   openClose(): void {
     this.open = !this.open;
   }
@@ -65,7 +68,7 @@ export class SecureComponent implements OnInit, OnDestroy {
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 1) {
         this.tokenStorage.clearToken();
-        this.router.navigate(['public']);
+        this.router.navigate(['login']);
         this.snackBar.open('Vous êtes déconnecter', 'OK', {
           duration: 5000,
           panelClass: ['mat-toolbar', 'mat-primary'],

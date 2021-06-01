@@ -33,19 +33,19 @@ export class AdminService {
 
   createAdmin(admin: Admin): Observable<Admin> {
     return this.http
-      .post<Admin>(this.url, admin, { headers })
+      .post<Admin>(this.url + "add", admin, { headers })
       .pipe(catchError(this.configService.handleError));
   }
 
   updateAdmin(admin: Admin): Observable<Admin> {
     return this.http
-      .put<Admin>(this.url + admin.id, admin, { headers })
+      .put<Admin>(this.url + "update", admin, { headers })
       .pipe(catchError(this.configService.handleError));
   }
 
   deleteAdmin(admin: Admin): Observable<any> {
     return this.http
-      .delete<any>(this.url + admin.id, { headers })
+      .delete<any>(this.url + "delete", { headers })
       .pipe(catchError(this.configService.handleError));
   }
 }

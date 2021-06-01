@@ -39,8 +39,8 @@ export class AddEtudiantComponent implements OnInit {
     if (this.etudiantForm.valid) {
       const inputValues = this.etudiantForm.getRawValue();
       const etudiant: Etudiant = {
-        nom: inputValues.nomControl,
-        prenom: inputValues.prenomControl,
+        firstname: inputValues.nomControl,
+        lastname: inputValues.prenomControl,
         username: inputValues.usernameControl,
         password: inputValues.passwordControl,
       };

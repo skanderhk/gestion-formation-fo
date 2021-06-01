@@ -19,7 +19,7 @@ import { getFullname } from 'src/app/shared/functions/commun';
   styleUrls: ['./admin-list.component.scss'],
 })
 export class AdminListComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['fullname', 'username', 'actions'];
+  displayedColumns: string[] = ['id', 'firstname', 'lastname', 'username','email', 'actions'];
   public admins: Admin[] = [];
   public dataSource = new MatTableDataSource(this.admins);
   public getFullname = getFullname;
@@ -42,7 +42,6 @@ export class AdminListComponent implements OnInit, AfterViewInit {
   loadAdmins(): void {
     this.adminService.getAdmins().subscribe((admins: Admin[]) => {
       this.admins = admins;
-      this.dataSource = new MatTableDataSource(this.admins);
     });
   }
 

@@ -2,11 +2,15 @@ import { Role } from '../constants/Role.enum';
 
 export interface User {
   readonly id?: number;
-  nom: string;
-  prenom: string;
+  userCode?: string;
+  firstname: string;
+  lastname: string;
   username: string;
+  email?: string;
   password?: string;
-  role: Role;
+  profileImageUrl?: string;
+
+  readonly role?: Role;
 }
 
 export type UserLogin = Pick<User, 'username' | 'password'>;

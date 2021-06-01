@@ -48,8 +48,8 @@ export class EditEtudiantComponent implements OnInit {
 
   createForm(etudiant?: Etudiant): FormGroup {
     return this.fb.group({
-      nomControl: [etudiant.nom, [Validators.required]],
-      prenomControl: [etudiant.prenom, [Validators.required]],
+      nomControl: [etudiant.firstname, [Validators.required]],
+      prenomControl: [etudiant.lastname, [Validators.required]],
       usernameControl: [etudiant.username, [Validators.required]],
       passwordControl: [etudiant.password, [Validators.required]],
     });
@@ -60,8 +60,8 @@ export class EditEtudiantComponent implements OnInit {
       const inputValues = this.etudiantForm.getRawValue();
       const etudiant: Etudiant = {
         id: this.etudiant.id,
-        nom: inputValues.nomControl,
-        prenom: inputValues.prenomControl,
+        firstname: inputValues.nomControl,
+        lastname: inputValues.prenomControl,
         username: inputValues.usernameControl,
         password: inputValues.passwordControl,
       };

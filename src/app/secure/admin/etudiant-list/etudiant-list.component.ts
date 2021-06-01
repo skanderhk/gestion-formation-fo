@@ -42,7 +42,6 @@ export class EtudiantListComponent implements OnInit, AfterViewInit {
   loadEtudiants(): void {
     this.etudiantService.getEtudiants().subscribe((etudiants: Etudiant[]) => {
       this.etudiants = etudiants;
-      this.dataSource = new MatTableDataSource(this.etudiants);
     });
   }
 

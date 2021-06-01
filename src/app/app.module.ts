@@ -1,4 +1,5 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
+import * as $ from 'jquery';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';

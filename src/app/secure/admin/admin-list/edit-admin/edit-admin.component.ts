@@ -16,7 +16,7 @@ import { Observable } from 'rxjs';
 export class EditAdminComponent implements OnInit {
   admin$: Observable<Admin>;
   admin: Admin;
-  adminForm: FormGroup;
+  adminForm: FormGroup ;
 
   constructor(
     private snackBar: MatSnackBar,
@@ -28,6 +28,7 @@ export class EditAdminComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.adminForm = this.createForm();
     this.route.params.subscribe((params) => {
       this.admin$ = this.adminService.getAdmin(params.id);
     });
@@ -47,12 +48,20 @@ export class EditAdminComponent implements OnInit {
   }
 
   createForm(admin?: Admin): FormGroup {
-    return this.fb.group({
-      nomControl: [admin.nom, [Validators.required]],
-      prenomControl: [admin.prenom, [Validators.required]],
+    if (admin){
+      return this.fb.group({
+      nomControl: [admin.firstname, [Validators.required]],
+      prenomControl: [admin.lastname, [Validators.required]],
       usernameControl: [admin.username, [Validators.required]],
       passwordControl: [admin.password, [Validators.required]],
     });
+    }
+    return this.fb.group({
+      nomControl: [null, [Validators.required]],
+      prenomControl: [null, [Validators.required]],
+      usernameControl: [null, [Validators.required]],
+      passwordControl: [null, [Validators.required]],
+    })
   }
 
   submitAdmin(): void {
@@ -60,8 +69,8 @@ export class EditAdminComponent implements OnInit {
       const inputValues = this.adminForm.getRawValue();
       const admin: Admin = {
         id: this.admin.id,
-        nom: inputValues.nomControl,
-        prenom: inputValues.prenomControl,
+        firstname: inputValues.nomControl,
+        lastname: inputValues.prenomControl,
         username: inputValues.usernameControl,
         password: inputValues.passwordControl,
       };

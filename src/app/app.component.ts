@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
     private tokenStorage: TokenStorageService,
     private router: Router
   ) {}
+
   ngOnInit(): void {
     window.addEventListener(
       'storage',

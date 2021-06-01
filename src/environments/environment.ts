@@ -14,7 +14,7 @@ export const environment = {
   ADMIN: 'admins/',
   ETUDIANT: 'students/',
   FICHEPRESENCE: 'fichePresences/',
-  FORMATEUR: 'formateurs/',
+  FORMATEUR: 'employees/',
   GROUPE: 'groupes/',
   MATIERE: 'matieres/',
   NOTE: 'notes/',

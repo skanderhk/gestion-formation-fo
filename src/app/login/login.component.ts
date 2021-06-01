@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AuthService } from '../core/service/Auth.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { TokenStorageService } from '../core/service/TokenStorage.service';
@@ -19,7 +18,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
   constructor(
-    private snackBar: MatSnackBar,
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
@@ -49,11 +47,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.subscription = token$.subscribe((token) => {
         this.tokenStorageService.setToken(token);
         this.router.navigate(['secure']);
-      });
-    } else {
-      this.snackBar.open('Formulaire invalid', 'OK', {
-        duration: 3500,
-        panelClass: ['mat-toolbar', 'mat-primary'],
       });
     }
   }

@@ -4,7 +4,7 @@ import { Formateur } from '../models/Formateur.model';
 import { User } from '../models/User.model';
 
 export function getFullname(user: User | Admin | Etudiant | Formateur): string {
-  return capitalize(user?.nom) + ' ' + user?.prenom?.toUpperCase();
+  return capitalize(user?.firstname) + ' ' + user?.lastname?.toUpperCase();
 }
 
 export function capitalize(name: string): string {

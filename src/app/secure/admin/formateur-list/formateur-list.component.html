@@ -1,3 +1,99 @@
-<p>
-  formateur-list works!
-</p>
+ <!-- start page title -->
+ <div class="page-title-box">
+  <div class="container-fluid">
+   <div class="row align-items-center">
+       <div class="col-sm-6">
+           <div class="page-title">
+               <h4>Trainers List</h4>
+                   <ol class="breadcrumb m-0">
+                       <li class="breadcrumb-item"><a href="javascript: void(0);">EduCenter</a></li>
+                       <li class="breadcrumb-item"><a href="javascript: void(0);">Users List</a></li>
+                       <li class="breadcrumb-item active">Trainers List</li>
+                   </ol>
+           </div>
+       </div>
+       <div class="col-sm-6">
+          <div class="float-end d-none d-sm-block">
+              <a href="" class="btn btn-success">Add Widget</a>
+          </div>
+       </div>
+   </div>
+  </div>
+</div>
+<!-- end page title -->
+
+
+<div class="container-fluid">
+
+  <div class="page-content-wrapper">
+
+
+
+
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="card">
+                  <div class="card-body  pt-0">
+                      <ul class="nav nav-tabs nav-tabs-custom mb-4">
+                          <li class="nav-item">
+                              <a class="nav-link fw-bold p-3 active" href="#">All Trainers</a>
+                          </li>
+                      </ul>
+                      <div class="table-responsive">
+                          <table class="table table-centered datatable dt-responsive nowrap " style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                              <thead class="thead-light">
+                                  <tr>
+                                      <th style="width: 20px;">
+                                          <div class="form-check">
+                                              <input type="checkbox" class="form-check-input" id="ordercheck">
+                                              <label class="form-check-label" for="ordercheck">&nbsp;</label>
+                                          </div>
+                                      </th>
+                                      <th>Trainer ID</th>
+                                      <th>First Name</th>
+                                      <th>Last Name</th>
+                                      <th>Username</th>
+                                      <th>E-mail</th>
+                                      <th style="width: 120px;">Actions</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let item of formateurs">
+                                      <td>
+                                          <div class="form-check">
+                                              <input type="checkbox" class="form-check-input" id="ordercheck1">
+                                              <label class="form-check-label" for="ordercheck1">&nbsp;</label>
+                                          </div>
+                                      </td>
+
+                                      <td><a href="javascript: void(0);" class="text-dark fw-bold">#00{{ item.id }}</a> </td>
+                                      <td>{{ item.firstname }}
+                                      </td>
+                                      <td>{{ item.lastname }}</td>
+
+                                      <td>
+                                        {{ item.username }}
+                                      </td>
+                                      <td>
+                                        {{ item.email }}
+                                      </td>
+                                      <td id="tooltip-container1">
+                                          <a href="javascript:void(0);" class="me-3 text-info" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="Groups"><i class="fa fa-layer-group" aria-hidden="true"></i></a>
+                                          <a href="javascript:void(0);" class="me-3 text-warning" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="Courses"><i class="fa fa-chalkboard-teacher" aria-hidden="true"></i></a>
+                                          <a href="javascript:void(0);" class="me-3 text-primary" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="mdi mdi-pencil font-size-18"></i></a>
+                                          <a href="javascript:void(0);" class="text-danger" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- end row -->
+
+  </div>
+
+
+</div> <!-- container-fluid -->

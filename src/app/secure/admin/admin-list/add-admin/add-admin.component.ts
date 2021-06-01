@@ -31,6 +31,7 @@ export class AddAdminComponent implements OnInit {
       nomControl: [null, [Validators.required]],
       prenomControl: [null, [Validators.required]],
       usernameControl: [null, [Validators.required]],
+      emailControl: [null, [Validators.required]],
       passwordControl: [null, [Validators.required]],
     });
   }
@@ -39,9 +40,10 @@ export class AddAdminComponent implements OnInit {
     if (this.adminForm.valid) {
       const inputValues = this.adminForm.getRawValue();
       const admin: Admin = {
-        nom: inputValues.nomControl,
-        prenom: inputValues.prenomControl,
+        firstname: inputValues.nomControl,
+        lastname: inputValues.prenomControl,
         username: inputValues.usernameControl,
+        email: inputValues.emailControl,
         password: inputValues.passwordControl,
       };
       this.adminService.createAdmin(admin).subscribe((data) => {
