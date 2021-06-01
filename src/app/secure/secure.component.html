@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div id="layout-wrapper">
   <header id="page-topbar">
     <div class="navbar-header">
@@ -29,6 +30,71 @@
           id="vertical-menu-btn"
         >
           <i class="mdi mdi-menu"></i>
+=======
+<mat-drawer-container class="drawer-container" autosize>
+  <mat-drawer mode="side" [opened]="open">
+    <ng-container [ngSwitch]="user?.role">
+      <ng-container *ngSwitchCase="isAdmin">
+        <mat-list>
+          <mat-list-item
+            [routerLink]="['admin/admin-list']"
+            [routerLinkActive]=" ['router-active'] "
+          >
+            <em mat-list-icon class="fas fa-user-shield"></em>
+            <h5 mat-line>Admin</h5>
+          </mat-list-item>
+          <mat-list-item
+            [routerLink]="['admin/formateur-list']"
+            [routerLinkActive]=" ['router-active'] "
+          >
+            <em mat-list-icon class="fas fa-chalkboard-teacher"></em>
+            <h5 mat-line>Formateur</h5>
+          </mat-list-item>
+          <mat-list-item
+            [routerLink]="['admin/etudiant-list']"
+            [routerLinkActive]=" ['router-active'] "
+          >
+            <em mat-list-icon class="fas fa-user-graduate"></em>
+            <h5 mat-line>Etudiant</h5>
+          </mat-list-item>
+          <mat-list-item
+            [routerLink]="['admin/groupe']"
+            [routerLinkActive]=" ['router-active'] "
+          >
+            <em mat-list-icon class="fas fa-users"></em>
+            <h5 mat-line>Groupe</h5>
+          </mat-list-item>
+        </mat-list>
+      </ng-container>
+      <ng-container *ngSwitchCase="isEtudiant"> isEtudiant </ng-container>
+      <ng-container *ngSwitchDefault> isFormateur </ng-container>
+    </ng-container>
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-toolbar>
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+        (click)="openClose()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span> {{ user?.role }} </span>
+      <span class="spacer"></span>
+      <span> {{ getFullname(user) }} </span>
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logout()">
+          <em class="fas fa-door-open mr-4"></em>
+          <span class="ml-2">Se déconnecter</span>
+>>>>>>> 86d6c3575909831849ebb52ac65e0a0869447444
         </button>
 
         <!-- <div class="topbar-social-icon me-3 d-none d-md-block">

@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-edit-etudiant',
   templateUrl: './edit-etudiant.component.html',
-  styleUrls: ['./edit-etudiant.component.scss']
+  styleUrls: ['./edit-etudiant.component.scss'],
 })
 export class EditEtudiantComponent implements OnInit {
   etudiant$: Observable<Etudiant>;
@@ -41,7 +41,7 @@ export class EditEtudiantComponent implements OnInit {
           duration: 3500,
           panelClass: ['mat-toolbar', 'mat-primary'],
         });
-        this.router.navigate(['etudiant-list']);
+        this.router.navigate(['/etudiant-list']);
       }
     );
   }
@@ -71,7 +71,7 @@ export class EditEtudiantComponent implements OnInit {
             duration: 5000,
             panelClass: ['mat-toolbar', 'mat-primary'],
           });
-          this.router.navigate(['secure/etudiant/list-etudiant']);
+          this.router.navigate(['./'], { relativeTo: this.route.parent });
         }
       });
     } else {
@@ -85,5 +85,4 @@ export class EditEtudiantComponent implements OnInit {
   onBack(): void {
     this.location.back();
   }
-
 }

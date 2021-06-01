@@ -12,6 +12,6 @@ export interface Formateur {
   password?: string;
   profileImageUrl?: string;
   readonly role?: Role;
-  listMatiere: Matiere[];
-  listGroupe: Groupe[];
+  listMatiere?: Matiere[];
+  listGroupe?: Groupe[];
 }

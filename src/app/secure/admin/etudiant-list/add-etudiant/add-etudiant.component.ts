@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -5,12 +6,11 @@ import { Etudiant } from 'src/app/shared/models/Etudiant.model';
 import { EtudiantService } from 'src/app/secure/services/etudiant.service';
 import { Location } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-etudiant',
   templateUrl: './add-etudiant.component.html',
-  styleUrls: ['./add-etudiant.component.scss']
+  styleUrls: ['./add-etudiant.component.scss'],
 })
 export class AddEtudiantComponent implements OnInit {
   etudiantForm: FormGroup;
@@ -19,6 +19,7 @@ export class AddEtudiantComponent implements OnInit {
     private fb: FormBuilder,
     private etudiantService: EtudiantService,
     private router: Router,
+    private route: ActivatedRoute,
     private location: Location
   ) {}
 
@@ -50,7 +51,7 @@ export class AddEtudiantComponent implements OnInit {
             duration: 5000,
             panelClass: ['mat-toolbar', 'mat-primary'],
           });
-          this.router.navigate(['secure/etudiant/list-etudiant']);
+          this.router.navigate(['./'], { relativeTo: this.route.parent });
         }
       });
     } else {
@@ -64,5 +65,4 @@ export class AddEtudiantComponent implements OnInit {
   onBack(): void {
     this.location.back();
   }
-
 }
