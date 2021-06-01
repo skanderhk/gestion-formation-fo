@@ -9,6 +9,6 @@ export interface Formateur {
   username: string;
   password?: string;
   readonly role?: Role;
-  listMatiere: Matiere[];
-  listGroupe: Groupe[];
+  listMatiere?: Matiere[];
+  listGroupe?: Groupe[];
 }

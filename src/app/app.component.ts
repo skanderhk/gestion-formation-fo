@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
 
-import { Router } from '@angular/router';
 import { TokenStorageService } from './core/service/TokenStorage.service';
 
 @Component({
@@ -13,7 +13,18 @@ export class AppComponent implements OnInit {
   constructor(
     private tokenStorage: TokenStorageService,
     private router: Router
-  ) {}
+  ) {
+    router.events.forEach((event) => {
+      if (event instanceof NavigationStart) {
+        console.log(event.url);
+      }
+      // NavigationEnd
+      // NavigationCancel
+      // NavigationError
+      // RoutesRecognized
+    });
+  }
+
   ngOnInit(): void {
     window.addEventListener(
       'storage',

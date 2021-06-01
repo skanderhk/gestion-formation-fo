@@ -71,7 +71,7 @@ export class EditAdminComponent implements OnInit {
             duration: 5000,
             panelClass: ['mat-toolbar', 'mat-primary'],
           });
-          this.router.navigate(['secure/admin/list-admin']);
+          this.router.navigate(['./'], { relativeTo: this.route.parent });
         }
       });
     } else {

@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -5,7 +6,6 @@ import { Admin } from 'src/app/shared/models/Admin.model';
 import { AdminService } from 'src/app/secure/services/admin.service';
 import { Location } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-admin',
@@ -19,6 +19,7 @@ export class AddAdminComponent implements OnInit {
     private fb: FormBuilder,
     private adminService: AdminService,
     private router: Router,
+    private route: ActivatedRoute,
     private location: Location
   ) {}
 
@@ -50,7 +51,7 @@ export class AddAdminComponent implements OnInit {
             duration: 5000,
             panelClass: ['mat-toolbar', 'mat-primary'],
           });
-          this.router.navigate(['secure/admin/list-admin']);
+          this.router.navigate(['./'], { relativeTo: this.route.parent });
         }
       });
     } else {

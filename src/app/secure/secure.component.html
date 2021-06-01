@@ -5,24 +5,31 @@
         <mat-list>
           <mat-list-item
             [routerLink]="['admin/admin-list']"
-            routerLinkActive=" ['router-active'] "
+            [routerLinkActive]=" ['router-active'] "
           >
             <em mat-list-icon class="fas fa-user-shield"></em>
             <h5 mat-line>Admin</h5>
           </mat-list-item>
           <mat-list-item
             [routerLink]="['admin/formateur-list']"
-            routerLinkActive=" ['router-active'] "
+            [routerLinkActive]=" ['router-active'] "
           >
             <em mat-list-icon class="fas fa-chalkboard-teacher"></em>
             <h5 mat-line>Formateur</h5>
           </mat-list-item>
           <mat-list-item
             [routerLink]="['admin/etudiant-list']"
-            routerLinkActive=" ['router-active'] "
+            [routerLinkActive]=" ['router-active'] "
           >
             <em mat-list-icon class="fas fa-user-graduate"></em>
             <h5 mat-line>Etudiant</h5>
+          </mat-list-item>
+          <mat-list-item
+            [routerLink]="['admin/groupe']"
+            [routerLinkActive]=" ['router-active'] "
+          >
+            <em mat-list-icon class="fas fa-users"></em>
+            <h5 mat-line>Groupe</h5>
           </mat-list-item>
         </mat-list>
       </ng-container>
